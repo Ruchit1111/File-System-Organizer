@@ -1,6 +1,12 @@
 const fs = require('fs');
 const path = require('path')
-
+let types = {
+    media: ["mp4", "mkv", "mp3"],
+    archives: ["zip", "7z", "rar", "tar", "gz", "ar", "iso", "xz"],
+    documents: ["docx", "doc", "pdf", "xlsx", "xls", "odt", "ods", "odp", "odg", "odf", "txt", "ps", "tex",],
+    app: ["exe", "dmg", "pkg", "deb"],
+    image: ["jpg", "jpeg", "svg", "png"],
+};
 
 function organizefn(dirpath) {
     let destpath;
@@ -50,7 +56,9 @@ function getCategory(name) {
     for (let type in types) {
         let cTypeArr = types[type];
 
-        for (let i = 0; i < cTypeArr.length; i++) {
+        for (let i = 0; i < cTypeArr.length; i++)
+        
+        {
             if (ext == cTypeArr[i]) {
                 return type;
             }
